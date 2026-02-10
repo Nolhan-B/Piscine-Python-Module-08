@@ -4,20 +4,21 @@ import site
 
 
 def main() -> None:
-    try:
-        env_path = os.environ.get("VIRTUAL_ENV")
-        current_py = sys.executable
+    env_path = os.environ.get("VIRTUAL_ENV")
+    current_py = sys.executable
+
+    if env_path:
         current_env = os.path.basename(env_path)
         print("\nMATRIX STATUS: Welcome to the construct\n")
         print(f"Current Python: {current_py}")
-        print(f"Virtual Environnement: {current_env}")
-        print(f"Environnement Path: {env_path}\n")
+        print(f"Virtual Environment: {current_env}")
+        print(f"Environment Path: {env_path}\n")
         print("SUCCESS: You're in an isolated environment!")
         print("Safe to install packages without affecting")
         print("the global system.")
         print("\nPackage installation path:")
         print(f"{site.getsitepackages()[0]}")
-    except Exception:
+    else:
         print("\nMATRIX STATUS: You're still plugged in\n")
         print(f"Current Python: {current_py}")
         print("Virtual Environnement: None detected\n")
