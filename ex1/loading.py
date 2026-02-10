@@ -30,24 +30,23 @@ def main() -> None:
         print("\nSome dependencies are missing.")
         print("Install them with:")
         print("pip install -r requirements.txt")
-        sys.exit(1)
+    else:
+        import numpy as np
+        import pandas as pd
+        import matplotlib.pyplot as plt
 
-    import numpy as np
-    import pandas as pd
-    import matplotlib.pyplot as plt
+        print("\nAnalyzing Matrix data...")
 
-    print("\nAnalyzing Matrix data...")
+        data = np.random.randn(1000)
+        df = pd.DataFrame({"values": data})
 
-    data = np.random.randn(1000)
-    df = pd.DataFrame({"values": data})
+        print("Processing 1000 data points...")
 
-    print("Processing 1000 data points...")
+        df.plot(title="Matrix Signal Analysis")
+        plt.savefig("matrix_analysis.png")
 
-    df.plot(title="Matrix Signal Analysis")
-    plt.savefig("matrix_analysis.png")
-
-    print("Analysis complete!")
-    print("Results saved to: matrix_analysis.png")
+        print("Analysis complete!")
+        print("Results saved to: matrix_analysis.png")
 
 
 if __name__ == "__main__":
