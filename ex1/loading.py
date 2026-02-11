@@ -1,4 +1,3 @@
-import sys
 import importlib.util
 from importlib import metadata
 
